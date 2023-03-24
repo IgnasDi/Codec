@@ -28,6 +28,9 @@ namespace UnitTest
         [InlineData("5x0")]
         [InlineData("5x-1")]
         [InlineData("-1x5")]
+        [InlineData("55")]
+        [InlineData("5X5")]
+        [InlineData("5k5")]
         public void WhenGridEnteredIncorrectly(string grid)
         {
             var gridValidation = new GridValidation();
