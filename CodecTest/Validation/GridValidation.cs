@@ -19,6 +19,11 @@ namespace CodecTest.Validation
             var finalGrid = new Grid(0,0);
             int[] gridValues = new int[2];
             bool isValid = false;
+            if (!grid.Contains("x"))
+            {
+                isValid = false;
+                return (isValid, finalGrid);
+            }
             var XYAxis = grid.Split("x");
 
             for (int i = 0;  i < gridValues.Length; i++)
