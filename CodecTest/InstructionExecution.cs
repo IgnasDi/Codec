@@ -47,7 +47,7 @@ namespace CodecTest
                 }
                 else
                 {
-                    throw new ArgumentException("No Such Command");
+                    throw new ArgumentException("Ivalid instructions");
                 }
 
                 if (this.movement.IsMovementOutsideGrid(currentCoordinates, gridValues))

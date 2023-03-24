@@ -13,10 +13,7 @@ using CodecTest.Compass;
 namespace UnitTest
 {
     public class WhenCommandMenu
-    {
-        
-
-
+    {      
         [Theory]
         [InlineData("FRFFLFL", "Coordinates: 3, 3, Position: West")]
         [InlineData("RFLFFR", "Coordinates: 2, 3, Position: East")]
