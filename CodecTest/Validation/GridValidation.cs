@@ -20,7 +20,7 @@ namespace CodecTest.Validation
             var finalGrid = new Grid(0,0);
             int[] gridValues = new int[2];
             bool isValid = false;
-            var regex = new Regex(@"^\d+\w\d+$");
+            var regex = new Regex(@"^\d+x\d+$");
             if (!regex.IsMatch(grid))
             {
                 isValid = false;
