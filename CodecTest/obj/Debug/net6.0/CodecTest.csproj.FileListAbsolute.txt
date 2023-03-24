@@ -1,0 +1,15 @@
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\bin\Debug\net6.0\CodecTest.exe
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\bin\Debug\net6.0\CodecTest.deps.json
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\bin\Debug\net6.0\CodecTest.runtimeconfig.json
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\bin\Debug\net6.0\CodecTest.dll
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\bin\Debug\net6.0\CodecTest.pdb
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.csproj.AssemblyReference.cache
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.AssemblyInfoInputs.cache
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.AssemblyInfo.cs
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.csproj.CoreCompileInputs.cache
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.dll
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\refint\CodecTest.dll
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.pdb
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\CodecTest.genruntimeconfig.cache
+C:\Users\kuchm\Documents\Visual Studio 2022\CodecTest\CodecTest\obj\Debug\net6.0\ref\CodecTest.dll
