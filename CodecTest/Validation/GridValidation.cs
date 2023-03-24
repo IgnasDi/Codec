@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CodecTest.Validation
@@ -19,11 +20,12 @@ namespace CodecTest.Validation
             var finalGrid = new Grid(0,0);
             int[] gridValues = new int[2];
             bool isValid = false;
-            if (!grid.Contains("x"))
+            var regex = new Regex(@"^\d+\w\d+$");
+            if (!regex.IsMatch(grid))
             {
                 isValid = false;
                 return (isValid, finalGrid);
-            }
+            }           
             var XYAxis = grid.Split("x");
 
             for (int i = 0;  i < gridValues.Length; i++)
