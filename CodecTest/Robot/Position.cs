@@ -16,10 +16,10 @@ namespace CodecTest.Robot
     {
         public string CompassDirection(string currentDirection, string instruction)
         {
-            var moving = new Command();
+            var command = new Command();
             var sequence = CardinalDirections.Directions.Count;
             var currentPositionKey = CardinalDirections.Directions.FirstOrDefault(v => v.Value.Equals(currentDirection)).Key;
-            var instructionKey = currentPositionKey + moving.TurningPosition.FirstOrDefault(k => k.Key.Equals(instruction)).Value;
+            var instructionKey = currentPositionKey + command.TurningPosition.FirstOrDefault(k => k.Key.Equals(instruction)).Value;
             if (instructionKey > sequence)
             {
                 return CardinalDirections.Directions.Values.First();
