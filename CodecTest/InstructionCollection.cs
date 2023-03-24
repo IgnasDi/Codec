@@ -20,7 +20,7 @@ namespace CodecTest
         public void CollectGridAndInstructions()
         {
             Console.WriteLine("Please enter Grid parameters");
-
+            Console.WriteLine("----------------------------");
             Console.WriteLine("Please enter X Axis:");
             var xAxisInput = GridValidation.ValidateAxis();
 

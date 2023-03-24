@@ -21,13 +21,13 @@ namespace CodecTest.Validation
                     isValid = Int32.TryParse(input, out output);
                     if (!isValid)
                     {
-                        Console.WriteLine("Please enter A number");
+                        Console.WriteLine("Please enter a number");
                     }
                     else 
                     {
                         if (output <= 0)
                         {
-                            Console.WriteLine("Please enter A positive greater than 0 number");
+                            Console.WriteLine("Please enter a positive greater than 0 number");
                             isValid = false;
                         }
                         else 

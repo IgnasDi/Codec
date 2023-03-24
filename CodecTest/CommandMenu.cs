@@ -21,7 +21,7 @@ namespace CodecTest
             while (isActive == "1")
             {
                 instructionCollection.CollectGridAndInstructions();
-                Console.WriteLine("If you want to try again? Please enter number 1");
+                Console.WriteLine("Do you want to try again? Please enter number 1");
                 isActive = Console.ReadLine();
                 if (isActive != "1")
                 {
