@@ -11,11 +11,11 @@ namespace CodecTest
 {
     public interface IInstructionExecution 
     {
-        string DisplayFinalCoordinates(int[] grid, string instructions);
+        string DisplayFinalCoordinates(Grid grid, string instructions);
     }
     public class InstructionExecution : IInstructionExecution
     {        
-        public string DisplayFinalCoordinates(int[] grid, string instructions)
+        public string DisplayFinalCoordinates(Grid grid, string instructions)
         {
             var arrayInstructions = instructions.ToArray();
             var currentCoordinates = new int[] { 1, 1 };
@@ -23,6 +23,7 @@ namespace CodecTest
             var movement = new Movement();
             var position = new Position();
             var command = new Command();
+            var gridValues = new int[] { grid.XAxis, grid.XAxis };
 
             foreach (var instruction in arrayInstructions)
             {
@@ -41,7 +42,7 @@ namespace CodecTest
                     throw new ArgumentException("No Such Command");
                 }
 
-                if (movement.IsMovementOutsideGrid(currentCoordinates, grid))
+                if (movement.IsMovementOutsideGrid(currentCoordinates, gridValues))
                 {
                     throw new Exception("Robot outside the grid");
                 }

@@ -16,14 +16,14 @@ namespace CodecTest
         public void GameMenuSelection()
         {
             var instructionCollection = new InstructionCollection();
-            string isActive = "1";
+            string isActive = "y";
 
-            while (isActive == "1")
+            while (isActive == "y")
             {
                 instructionCollection.CollectGridAndInstructions();
-                Console.WriteLine("Do you want to try again? Please enter number 1");
+                Console.WriteLine("Do you want to try again? y/Y for yes n/N for no");
                 isActive = Console.ReadLine();
-                if (isActive != "1")
+                if (isActive.ToLower() != "y")
                 {
                     break;
                 }

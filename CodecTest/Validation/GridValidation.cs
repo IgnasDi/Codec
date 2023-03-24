@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodecTest.Instructions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,44 +7,40 @@ using System.Threading.Tasks;
 
 namespace CodecTest.Validation
 {
-    public static class GridValidation
+    public interface IGridValidation 
     {
-        public static int ValidateAxis()
+        (bool IsValid, Grid Grid) ValidateGrid(string grid);
+    }
+    public class GridValidation : IGridValidation
+    {
+        public (bool IsValid, Grid Grid) ValidateGrid(string grid)
         {
             int output;
-            int result = 0;
+            var finalGrid = new Grid(0,0);
+            int[] gridValues = new int[2];
             bool isValid = false;
-            while (!isValid)
+            var XYAxis = grid.Split("x");
+
+            for (int i = 0;  i < gridValues.Length; i++)
             {
-                var input = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(input))
+                isValid = Int32.TryParse(XYAxis[i], out output);
+                if (isValid && output > 0)
                 {
-                    isValid = Int32.TryParse(input, out output);
-                    if (!isValid)
-                    {
-                        Console.WriteLine("Please enter a number");
-                    }
-                    else 
-                    {
-                        if (output <= 0)
-                        {
-                            Console.WriteLine("Please enter a positive greater than 0 number");
-                            isValid = false;
-                        }
-                        else 
-                        {
-                            result = output;
-                            break;
-                        }
-                    }                   
+                    gridValues[i] = output;
                 }
-                else
+                else 
                 {
                     isValid = false;
+                    return (isValid, finalGrid);
                 }
             }
-            return result;
+            finalGrid.XAxis = gridValues[0];
+            finalGrid.YAxis = gridValues[1];
+            isValid = true;
+            return (isValid, finalGrid);
         }
+
+        
 
     }
 }

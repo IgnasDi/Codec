@@ -14,25 +14,56 @@ namespace CodecTest
     }
     public class InstructionCollection : IInstructionCollection
     {
-        string instructions = string.Empty;
         InstructionExecution instructionExecution = new InstructionExecution();
 
         public void CollectGridAndInstructions()
         {
+            
             Console.WriteLine("Please enter Grid parameters");
-            Console.WriteLine("----------------------------");
-            Console.WriteLine("Please enter X Axis:");
-            var xAxisInput = GridValidation.ValidateAxis();
+            Console.WriteLine("----------------------------");            
+            var grid = RunGridCommands();                      
+            var instructions = RunInstructionCommands();
 
-            Console.WriteLine("Please enter Y Axis:");
-            var yAxisInput = GridValidation.ValidateAxis();
-            var grid = new Grid(xAxisInput, yAxisInput);
-
-            Console.WriteLine("Please enter instructions");
-            instructions = InstructionValidation.ValidateInstructions();
-
-            var finalCoordinates = instructionExecution.DisplayFinalCoordinates(grid.XYGrid(), instructions);
+            var finalCoordinates = instructionExecution.DisplayFinalCoordinates(grid, instructions);
             Console.WriteLine(finalCoordinates);
+        }
+
+        private string RunInstructionCommands()
+        {
+            InstructionValidation instructionValidation = new InstructionValidation();
+            bool isLoop = false;
+            string instructions = string.Empty;
+            while (!isLoop)
+            {
+                Console.WriteLine("Please enter correct instructions");
+                var input = Console.ReadLine();
+                var result = instructionValidation.ValidateInstructions(input);
+                if (result.IsValid)
+                {
+                    instructions = result.Instructions;
+                    isLoop = result.IsValid;
+                }
+            }
+            return instructions;
+        }
+
+        private Grid RunGridCommands()
+        {
+            GridValidation gridValidation = new GridValidation();
+            bool isLoop = false;
+            Grid grid = null;
+            while (!isLoop)
+            {
+                Console.WriteLine("Please enter a grid size (example NxN) numbers should be greater than 0:");
+                var gridInput = Console.ReadLine();
+                var result = gridValidation.ValidateGrid(gridInput);
+                if (result.IsValid)
+                {
+                    grid = result.Grid;
+                    isLoop = result.IsValid;
+                }
+            }
+            return grid;
         }
     }
 }

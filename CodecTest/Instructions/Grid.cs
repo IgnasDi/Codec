@@ -8,7 +8,7 @@ namespace CodecTest.Instructions
 {
     public class Grid
     {
-        public Grid (int xAxis, int yAxis )
+        public Grid(int xAxis, int yAxis)
         {
             XAxis = xAxis;
             YAxis = yAxis;

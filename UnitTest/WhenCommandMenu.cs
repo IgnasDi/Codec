@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using CodecTest;
+using CodecTest.Instructions;
 
 namespace UnitTest
 {
@@ -17,7 +18,7 @@ namespace UnitTest
         public void WhenDisplayFinalCoordinatesCorrect(string instructions, string finalCoordinates)
         {
             var instructionExecution = new InstructionExecution();
-            var grid = new int[] { 5, 5 };
+            var grid = new Grid(5, 5);
             var result = instructionExecution.DisplayFinalCoordinates(grid, instructions);           
             Assert.Equal(result, finalCoordinates);
         }
@@ -29,7 +30,7 @@ namespace UnitTest
         public void WhenDisplayFinalCoordinatesOutsideGrid(string instructions)
         {
             var instructionExecution = new InstructionExecution();
-            var grid = new int[] { 5, 5 };
+            var grid = new Grid(5, 5);
             Assert.Throws<Exception>(() => { var result = instructionExecution.DisplayFinalCoordinates(grid, instructions); });
 
         }
