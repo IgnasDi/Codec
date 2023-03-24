@@ -15,9 +15,13 @@ namespace CodecTest
     public class InstructionCollection : IInstructionCollection
     {
         private readonly IInstructionExecution  instructionExecution;
-        public InstructionCollection(IInstructionExecution instructionExecution)
+        private readonly IGridValidation gridValidation;
+        private readonly IInstructionValidation instructionValidation;    
+        public InstructionCollection(IInstructionExecution instructionExecution, IGridValidation gridValidation, IInstructionValidation instructionValidation)
         { 
             this.instructionExecution = instructionExecution;
+            this.gridValidation = gridValidation;
+            this.instructionValidation = instructionValidation;
         }
         public void CollectGridAndInstructions()
         {
@@ -33,14 +37,13 @@ namespace CodecTest
 
         private string RunInstructionCommands()
         {
-            InstructionValidation instructionValidation = new InstructionValidation();
             bool isLoop = false;
             string instructions = string.Empty;
             while (!isLoop)
             {
                 Console.WriteLine("Please enter correct instructions");
                 var input = Console.ReadLine();
-                var result = instructionValidation.ValidateInstructions(input);
+                var result = this.instructionValidation.ValidateInstructions(input);
                 if (result.IsValid)
                 {
                     instructions = result.Instructions;
@@ -52,14 +55,13 @@ namespace CodecTest
 
         private Grid RunGridCommands()
         {
-            GridValidation gridValidation = new GridValidation();
             bool isLoop = false;
             Grid grid = null;
             while (!isLoop)
             {
                 Console.WriteLine("Please enter a grid size (example NxN) numbers should be greater than 0:");
                 var gridInput = Console.ReadLine();
-                var result = gridValidation.ValidateGrid(gridInput);
+                var result = this.gridValidation.ValidateGrid(gridInput);
                 if (result.IsValid)
                 {
                     grid = result.Grid;
