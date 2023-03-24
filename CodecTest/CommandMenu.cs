@@ -12,15 +12,18 @@ namespace CodecTest
     }
     public class CommandMenu : ICommandMenu
     {
-        
+        private readonly IInstructionCollection instructions;
+        public CommandMenu(IInstructionCollection instructions)
+        { 
+            this.instructions = instructions;
+        }
         public void GameMenuSelection()
         {
-            var instructionCollection = new InstructionCollection();
             string isActive = "y";
 
             while (isActive == "y")
             {
-                instructionCollection.CollectGridAndInstructions();
+                this.instructions.CollectGridAndInstructions();
                 Console.WriteLine("Do you want to try again? y/Y for yes n/N for no");
                 isActive = Console.ReadLine();
                 if (isActive.ToLower() != "y")
@@ -30,5 +33,6 @@ namespace CodecTest
             }
                   
         }
+
     }
 }

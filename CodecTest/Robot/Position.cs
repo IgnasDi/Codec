@@ -8,29 +8,35 @@ using CodecTest.Instructions;
 
 namespace CodecTest.Robot
 {
-    interface IPosition
+    public interface IPosition
     {
         string CompassDirection(string currentDirection, string instruction);
     }
     public class Position : IPosition
     {
+        private readonly ICompassDirections compassDirections;
+        private  readonly ICommand command;
+        public Position(ICompassDirections compassDirections, ICommand command)
+        {
+            this.compassDirections = compassDirections;
+            this.command = command;
+        }
         public string CompassDirection(string currentDirection, string instruction)
         {
-            var command = new Command();
-            var sequence = CardinalDirections.Directions.Count;
-            var currentPositionKey = CardinalDirections.Directions.FirstOrDefault(v => v.Value.Equals(currentDirection)).Key;
-            var instructionKey = currentPositionKey + command.TurningPosition.FirstOrDefault(k => k.Key.Equals(instruction)).Value;
+            var sequence = this.compassDirections.Directions.Count;
+            var currentPositionKey = this.compassDirections.Directions.FirstOrDefault(v => v.Value.Equals(currentDirection)).Key;
+            var instructionKey = currentPositionKey + this.command.TurningPosition.FirstOrDefault(k => k.Key.Equals(instruction)).Value;
             if (instructionKey > sequence)
             {
-                return CardinalDirections.Directions.Values.First();
+                return this.compassDirections.Directions.Values.First();
             }
             else if (instructionKey == 0)
             {
-                return CardinalDirections.Directions.Values.Last();
+                return this.compassDirections.Directions.Values.Last();
             }
             else
             {
-                return CardinalDirections.Directions.FirstOrDefault(k => k.Key.Equals(instructionKey)).Value;
+                return this.compassDirections.Directions.FirstOrDefault(k => k.Key.Equals(instructionKey)).Value;
             }
         }
     }

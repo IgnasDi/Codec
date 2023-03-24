@@ -14,8 +14,11 @@ namespace CodecTest
     }
     public class InstructionCollection : IInstructionCollection
     {
-        InstructionExecution instructionExecution = new InstructionExecution();
-
+        private readonly IInstructionExecution  instructionExecution;
+        public InstructionCollection(IInstructionExecution instructionExecution)
+        { 
+            this.instructionExecution = instructionExecution;
+        }
         public void CollectGridAndInstructions()
         {
             

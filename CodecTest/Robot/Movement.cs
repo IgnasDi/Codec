@@ -7,7 +7,7 @@ using CodecTest.Compass;
 
 namespace CodecTest.Robot
 {
-    interface IMovement 
+    public interface IMovement 
     {
         bool IsMovementOutsideGrid(int[] currentCordinates, int[] grid);
         int[] CoordinatedIncrementonPosition(string position, int[] currentCoordinates);

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CodecTest.Instructions
 {
-    public class Command
+    public interface ICommand
+    {
+        string Forward { get; }
+        Dictionary<string, int> TurningPosition { get; }
+    }
+
+    public class Command : ICommand
     {
         public string Forward => "F";
        

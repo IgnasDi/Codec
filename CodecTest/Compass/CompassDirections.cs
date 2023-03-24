@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace CodecTest.Compass
 {
-    public static class CardinalDirections
+    public interface ICompassDirections
     {
-        public static Dictionary<int, string> Directions => new Dictionary<int, string> {
+        Dictionary<int, string> Directions { get; }
+    }
+    public class CompassDirections : ICompassDirections
+    {
+        public Dictionary<int, string> Directions => new Dictionary<int, string> {
             { 1, "North" },
             { 2, "East" },
             { 3, "South" },
