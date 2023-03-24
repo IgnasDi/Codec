@@ -69,7 +69,6 @@ namespace UnitTest
             var instructionExecution = new InstructionExecution(movement, position, command.Object, compassDirections.Object);
             var grid = new Grid(5, 5);
             Assert.Throws<Exception>(() => { var result = instructionExecution.DisplayFinalCoordinates(grid, instructions); });
-
         }
     }
 }
