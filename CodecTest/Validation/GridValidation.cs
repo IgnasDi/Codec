@@ -43,9 +43,6 @@ namespace CodecTest.Validation
             finalGrid.YAxis = gridValues[1];
             isValid = true;
             return (isValid, finalGrid);
-        }
-
-        
-
+        }       
     }
 }
